@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <link rel="stylesheet" href="collections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Fleur</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="collections.html">COLLECTIONS</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACTS</a></li>
+
+                <li><a href="liked.html"><i class="fas fa-heart"></i></a></li>
+        <li><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+        <li><a href="#search"><i class="fas fa-search"></i></a></li>
+        <li><a href="#account"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <body style="background-color: #fef5e7;">
+        
+    <main>
+        <section class="catalog">
+            <h1>Catalog</h1>
+            <div class="categories">
+                <a href="#">Spring Bouquets</a>
+                <a href="#">Wedding Flowers</a>
+                <a href="#">Custom Designs</a>
+              
+            </div>
+            <div class="products">
+                <div class="product-card">
+                    <i class="fas fa-heart favorite-icon" onclick="toggleFavorite(this)"></i>
+                    <img src="lillies.jpg" alt="Lilies">
+                    <h2>Lilies</h2>
+                    <p>$35</p>
+                    <button onclick="addToCart('Lillies', 35)">ADD TO CART</button>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-heart favorite-icon" onclick="toggleFavorite(this)"></i>
+                    <img src="wedddddd.jpg" alt="Special">
+                    <h2>Special</h2>
+                    <p>$20</p>
+                    <button onclick="addToCart('Special', 20)">ADD TO CART</button>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-heart favorite-icon" onclick="toggleFavorite(this)"></i>
+                    <img src="chry.jpg" alt="Chrysanthemum">
+                    <h2>Chrysanthemum</h2>
+                    <p>$35</p>
+                    <button onclick="addToCart('Chrysanthemum', 35)">ADD TO CART</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Add footer content if needed -->
+    </footer>
+    <script>
+        function toggleFavorite(icon) {
+            icon.classList.toggle('liked'); // Toggles the 'liked' class
+        }
+    </script>
+</body>
+</html>
+<script>
+    function addToCart(productName, productPrice) {
+        // Get the existing cart from localStorage, or create a new one if empty
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Add the new item to the cart
+        const item = {
+            name: productName,
+            price: productPrice
+        };
+        cart.push(item);
+
+        // Save the updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Optionally, you can alert the user or update the cart button UI here
+        alert(`${productName} has been added to your cart!`);
+    }
+</script>

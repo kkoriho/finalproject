@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+    </head>
+</head>
+
+<body style="background-color: #fef5e7;">
+    <header>
+        <div class="logo">Fleur</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="collections.html">COLLECTIONS</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="contact.html">CONTACTS</a></li>
+                <li><a href="liked.html"><i class="fas fa-heart"></i></a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-bag"></i></a></li>
+                <li><a href="#search"><i class="fas fa-search"></i></a></li>
+                <li><a href="#account"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h1>Your Cart</h1>
+            <div id="cart-items">
+                <!-- Cart items will be dynamically injected here -->
+            </div>
+        </section>
+        <button class="btn-primary">Proceed to Checkout</button>
+    </main>
+
+    <script>
+        // Function to display items in the cart
+        function displayCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = ''; // Clear existing content
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <p>${item.name} - $${item.price}</p>
+                        <button class="delete-btn" onclick="deleteItem(${index})">Delete</button>
+                    `;
+                    cartItemsContainer.appendChild(cartItem);
+                });
+            }
+        }
+    
+        function deleteItem(index) {
+            // Get the cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Remove the item at the specified index
+            cart.splice(index, 1);
+    
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Update the cart display
+            displayCart();
+        }
+    
+        // Call displayCart when the page loads
+        window.onload = displayCart;
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'Cyrene Regular';
+    src: url(fonts/Cyrene\ Regular.otf);
+}
+
+@font-face {
+    font-family: 'Sunflower';
+    src: url(fonts/Sunflower-Light.ttf);
+}
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Sunflower', sans-serif;
+    color: #3a2e29;
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+/* Header Styles */
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fef5e7;
+    color: #3a2e29;
+}
+
+header .logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'Cyrene Regular';
+    color: #ed8093;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem; /* Adjust the gap between items */
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem; /* Adjust icon size */
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+
+
+
+
+/* Icon-specific styling */
+nav ul li a i {
+    vertical-align: middle;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #3a2e29;
+    font-size: 1em;
+    position: relative; /* Required for pseudo-element positioning */
+    transition: color 0.3s ease; /* Smooth text color change */
+}
+
+header nav ul li a:hover {
+    color: #bca758; /* Change the text color */
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position the underline slightly below the text */
+    left: 0;
+    width: 0; /* Initial width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #bca758; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth width transition */
+}
+
+header nav ul li a:hover::after {
+    width: 100%; /* Expand the underline to full width */
+}
+
+
+
+.cart {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cart h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    margin-top: 20px;
+}
+
+.cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item p {
+    font-size: 18px;
+    color: #3a2e29;
+}
+
+    .delete-btn {
+        background-color: #ed8093;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 50px;
+        text-transform: uppercase;
+    }
+
+    .delete-btn:hover {
+        background-color: #f2a0b0;
+    }
+
+    
+    #cart-items {
+        margin-bottom: 80px;
+    }
+
+
+.delete-btn:hover {
+    background-color: #f2a0b0;
+}
+
+
+#cart-items {
+    margin-bottom: 80px;
+}
+.btn-primary {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3a2e29;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 90%; 
+    max-width: 500px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ed8093;
+}
